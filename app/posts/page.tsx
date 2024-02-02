@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PostCard from "./_components/card";
 
 type Post = {
@@ -18,7 +19,9 @@ const Page = async () => {
   return (
     <section className="grid gap-4">
       {posts.map((post) => (
-        <PostCard key={post.id} title={post.title} body={post.body} />
+        <Link key={post.id} href={`/posts/${post.id}`}>
+          <PostCard key={post.id} title={post.title} />
+        </Link>
       ))}
     </section>
   );
